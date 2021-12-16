@@ -23,3 +23,24 @@ var GenresView = Backbone.View.extend({
         return this;
     }
 });
+
+
+var AppRouter = Backbone.Router.extend({
+    routers: {
+        "albums": "viewAlbums" // 1
+    },
+
+    viewAlbums() {
+        var view = new AlbumsView({ el: "#container" }); // 2
+        view.render(); // 3
+    }
+});
+
+/**
+ * 1. if route is 'albums', call function viewAlbums()
+ * format: "route-pattern" : "route-handler"
+ * 
+ * 2. the route-handler creates a new "view"
+ * 
+ * 3. the route-handler renders the new "view"
+ */
