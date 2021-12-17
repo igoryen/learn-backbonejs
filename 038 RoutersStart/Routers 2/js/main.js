@@ -3,7 +3,7 @@
 // Later, you'll see how to organize your code into separate
 // files and modules.
 
-var ArtistView = Backbone.View.extend({
+var ArtistsView = Backbone.View.extend({
     render() {
         this.$el.html("ARTISTS VIEW");
         return this;
@@ -26,7 +26,7 @@ var GenresView = Backbone.View.extend({
 
 
 var AppRouter = Backbone.Router.extend({
-    routers: {
+    routes: {
         "albums": "viewAlbums", // 1
         "albums/:albumId": "viewAlbumId",
         "artists": "viewArtists",
@@ -53,10 +53,6 @@ var AppRouter = Backbone.Router.extend({
         var view = new AlbumsView({ el: "#container" }); // 2
         view.render(); // 3
     },
-
-    viewAlbumId(albumId) {
-        // tbd
-    }
 });
 
 var router = new AppRouter();
@@ -67,7 +63,7 @@ var NavView = Backbone.View.extend({
         "click": "onClick"
     },
 
-    onclick(e) {
+    onClick(e) {
         var $li = $(e.target);
         router.navigate(
             $li.attr("data-url"),
