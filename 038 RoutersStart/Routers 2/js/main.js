@@ -27,12 +27,17 @@ var GenresView = Backbone.View.extend({
 
 var AppRouter = Backbone.Router.extend({
     routers: {
-        "albums": "viewAlbums" // 1
+        "albums": "viewAlbums", // 1
+        "albums/:albumId": "viewAlbumId"
     },
 
     viewAlbums() {
         var view = new AlbumsView({ el: "#container" }); // 2
         view.render(); // 3
+    },
+
+    viewAlbumId(albumId) {
+        // tbd
     }
 });
 
