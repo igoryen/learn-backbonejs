@@ -62,6 +62,22 @@ var AppRouter = Backbone.Router.extend({
 var router = new AppRouter();
 Backbone.history.start();
 
+var NavView = Backbone.View.extend({
+    events: {
+        "click": "onClick"
+    },
+
+    onclick(e) {
+        var $li = $(e.target);
+        router.navigate(
+            $li.attr("data-url"),
+            { trigger: true }
+        )
+    }
+});
+
+var navView = new NavView({ el: "#nav" });
+
 /**
  * 1. if route is 'albums', call function viewAlbums()
  * format: "route-pattern" : "route-handler"
