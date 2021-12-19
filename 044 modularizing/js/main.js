@@ -1,12 +1,10 @@
-var Song = Backbone.Model.extend();
+import { hello, SongView } from "./views/songView.js";
+import { Song } from './models/song.js';
 
-var SongView = Backbone.View.extend({
-    render() {
-        this.$el.html(this.model.get("title"));
-        return this;
-    }
-});
+const song = new Song({ title: "Blue in Green" });
 
-var song = new Song({ title: "Blue in Green" });
-var SongView = new SongView({ el: "#container", model: song });
-SongView.render();
+const songView = new SongView({ el: "#container", model: song });
+songView.render();
+
+
+console.log(hello());
