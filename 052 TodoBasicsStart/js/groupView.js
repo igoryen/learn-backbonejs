@@ -3,6 +3,12 @@ var GroupView = Backbone.View.extend({
     tagName: "ul",
     id: "group",
 
+    initialize(options) {
+        if (!(options && options.model)) {
+            throw new Error("model is not described.")
+        }
+    },
+
     render() {
         var self = this;
 

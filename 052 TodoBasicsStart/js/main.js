@@ -5,6 +5,10 @@ $(document).ready(function () {
         new TodoItem({ description: "TodoItem 2" })
     ]);
 
-    var groupView = new GroupView({ model: group });
+    var groupView = new GroupView(
+        {
+            model: group
+        }
+    );
     $("body").append(groupView.render().$el);
 });
