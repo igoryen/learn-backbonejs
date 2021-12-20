@@ -8,9 +8,19 @@ var GroupView = Backbone.View.extend({
             throw new Error("model is not described.")
         }
     },
+    events: {
+        "click #add": "handleClickAdd"
+    },
+    //===================================
+    handleClickAdd() {
+        console.log("handleClickAdd");
+    },
+    //===================================
 
     render() {
         var self = this;
+
+        this.$el.append("<button id='add'>Add</button>");
 
         this.model.each(function (todoItem) {
             var view = new TodoItemView({ model: todoItem });
