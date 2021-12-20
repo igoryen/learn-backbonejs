@@ -1,4 +1,4 @@
-var TodoItemsView = Backbone.View.extend({
+var GroupView = Backbone.View.extend({
     render() {
         var self = this;
 
