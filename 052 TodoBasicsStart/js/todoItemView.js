@@ -7,7 +7,11 @@ var TodoItemView = Backbone.View.extend({
     },
 
     render() {
-        this.$el.html(this.model.get("description"));
+        this.$el.html(this.model.escape("description")); // 1
         return this;
     }
 });
+
+/**
+ * 1. not execute code like <sctipt>alert('hacked')</script> but turn it into text
+ */
