@@ -16,6 +16,8 @@ var GroupView = Backbone.View.extend({
     handleClickAdd() {
         var todoItem = new TodoItem({ description: this.$("#newTodoItem").val() });
         this.model.add(todoItem);
+
+        this.$("#newTodoItem").val("");
     },
     handleAddOneItem(todoItem) {
         var view = new TodoItemView({
