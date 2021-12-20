@@ -39,7 +39,7 @@ var GroupView = Backbone.View.extend({
     render() {
         var self = this;
 
-        this.$el.append("<input type='text' id='newTodoItem'></input>");
+        this.$el.append("<input type='text' autofocus id='newTodoItem'></input>");
         this.$el.append("<button id='add'>Add</button>");
 
         this.model.each(function (todoItem) {
