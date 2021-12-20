@@ -17,10 +17,11 @@ var GroupView = Backbone.View.extend({
     handleClickAdd() {
         var $textBox = this.$("#newTodoItem");
 
-        var todoItem = new TodoItem({ description: $textBox.val() });
-        this.model.add(todoItem);
-
-        $textBox.val("");
+        if ($textBox.val()) {
+            var todoItem = new TodoItem({ description: $textBox.val() });
+            this.model.add(todoItem);
+            $textBox.val("");
+        }
     },
     handleAddOneItem(todoItem) {
         var view = new TodoItemView({
@@ -30,7 +31,7 @@ var GroupView = Backbone.View.extend({
     },
     handleKeyPress(event) {
         if (event.keyCode == 13) {
-            console.log("handleKeyPress ")
+            this.handleClickAdd();
         }
     },
     //===================================
