@@ -14,10 +14,12 @@ var GroupView = Backbone.View.extend({
     },
     //===================================
     handleClickAdd() {
-        var todoItem = new TodoItem({ description: this.$("#newTodoItem").val() });
+        var $textBox = this.$("#newTodoItem");
+
+        var todoItem = new TodoItem({ description: $textBox.val() });
         this.model.add(todoItem);
 
-        this.$("#newTodoItem").val("");
+        $textBox.val("");
     },
     handleAddOneItem(todoItem) {
         var view = new TodoItemView({
