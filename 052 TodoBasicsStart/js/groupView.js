@@ -7,7 +7,7 @@ var GroupView = Backbone.View.extend({
         if (!(options && options.model)) {
             throw new Error("model is not described.")
         }
-        this.model.on("add", this.handleAddOneItem)
+        this.model.on("add", this.handleAddOneItem, this)
     },
     events: {
         "click #add": "handleClickAdd"
@@ -17,8 +17,11 @@ var GroupView = Backbone.View.extend({
         var todoItem = new TodoItem({ description: "New TodoItem" });
         this.model.add(todoItem);
     },
-    handleAddOneItem() {
-        console.log("added one item");
+    handleAddOneItem(todoItem) {
+        var view = new TodoItemView({
+            model: todoItem
+        });
+        this.$el.append(view.render().$el);
     },
     //===================================
 
