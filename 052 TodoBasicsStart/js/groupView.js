@@ -10,7 +10,8 @@ var GroupView = Backbone.View.extend({
         this.model.on("add", this.handleAddOneItem, this)
     },
     events: {
-        "click #add": "handleClickAdd"
+        "click #add": "handleClickAdd",
+        "keypress #newTodoItem": "handleKeyPress"
     },
     //===================================
     handleClickAdd() {
@@ -26,6 +27,11 @@ var GroupView = Backbone.View.extend({
             model: todoItem
         });
         this.$el.append(view.render().$el);
+    },
+    handleKeyPress(event) {
+        if (event.keyCode == 13) {
+            console.log("handleKeyPress ")
+        }
     },
     //===================================
 
