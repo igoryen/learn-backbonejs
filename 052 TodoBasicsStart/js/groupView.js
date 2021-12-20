@@ -1,4 +1,8 @@
 var GroupView = Backbone.View.extend({
+
+    tagName: "ul",
+    id: "group",
+
     render() {
         var self = this;
 
