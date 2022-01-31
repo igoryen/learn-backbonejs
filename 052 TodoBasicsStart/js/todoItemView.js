@@ -11,7 +11,11 @@ var TodoItemView = Backbone.View.extend({
     },
 
     onClickToggle() {
-        console.log("Toggle clicked");
+        if (this.model.get("isCompleted")) {
+            this.model.set("isCompleted", false);
+        } else {
+            this.model.set("isCompleted", true);
+        }
     },
 
     render() {
