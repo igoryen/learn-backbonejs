@@ -6,8 +6,16 @@ var TodoItemView = Backbone.View.extend({
         }
     },
 
+    events: {
+        "click #toggle": "onClickToggle"
+    },
+
+    onClickToggle() {
+        console.log("Toggle clicked");
+    },
+
     render() {
-        this.$el.html(this.model.escape("description")); // 1
+        this.$el.html("<input id='toggle' type='checkbox'></input>" + this.model.escape("description")); // 1
         return this;
     }
 });
